@@ -1,73 +1,65 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        front-open-fever
-      </h1>
-      <h2 class="subtitle">
-        Basic and anonymous form to upload new temperature entry
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
+  <div class="container mx-auto flex flex-wrap justify-center items-stretch">
+    <div
+      id="temperature-form"
+      class="w-full sm:w-1/2 flex flex-col flex-wrap justify-center px-1"
+    >
+      <div class="sm:max-w-xs mt-6">
+        <label
+          for="temperature"
+          class="block text-sm leading-5 font-medium text-gray-700"
+          >Température</label
         >
-          GitHub
-        </a>
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <input
+            id="temperature"
+            class="form-input block w-full sm:text-sm sm:leading-5"
+            placeholder="0.00 °C (degrés Celsius)"
+            type="number"
+            step="0.01"
+            min="0"
+            max="50"
+          />
+        </div>
       </div>
+
+      <div class="sm:max-w-xs my-6">
+        <label
+          for="code-postal"
+          class="block text-sm leading-5 font-medium text-gray-700"
+          >Code postal</label
+        >
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <input
+            id="code-postal"
+            class="form-input block w-full sm:text-sm sm:leading-5"
+            placeholder="Entrez votre code postal (ex 75001)"
+            type="number"
+            step="100"
+          />
+        </div>
+      </div>
+
+      <div class="md:flex md:items-start">
+        <temperature-share-button />
+      </div>
+    </div>
+    <div class="w-full sm:w-1/2 flex flex-col flex-wrap justify-center px-1">
+      <temperature-table />
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import TemperatureShareButton from '~/components/TemperatureShareButton.vue'
+import TemperatureTable from '~/components/TemperatureTable.vue'
 
 export default {
   components: {
-    Logo
+    TemperatureShareButton,
+    TemperatureTable
   }
 }
 </script>
 
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+<style></style>
