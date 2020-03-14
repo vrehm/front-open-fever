@@ -110,7 +110,7 @@ export default {
       this.temperature = null
       this.zipcode = null
       this.showNotice = true
-      this.startInterval(100000)
+      this.startInterval(4000)
     },
     async refreshData() {
       const {
