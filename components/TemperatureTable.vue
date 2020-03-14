@@ -9,7 +9,7 @@
             Températures relevées
           </h3>
           <p class="mt-1 text-sm leading-5 text-gray-500">
-            Table des températures transmises.
+            Les 10 dernières températures transmises.
           </p>
         </div>
         <div class="ml-4 mt-4 flex-shrink-0">
@@ -55,8 +55,14 @@
                 ></th>
               </tr>
             </thead>
+
             <tbody class="bg-white">
-              <tr>
+              <temperature-row
+                v-for="temperature in temperatures"
+                :key="temperature.id"
+                :temperature="temperature"
+              />
+              <!-- <tr>
                 <td
                   class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"
                 >
@@ -173,7 +179,7 @@
                     >Filtrer par ce code</a
                   >
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>
@@ -183,7 +189,19 @@
 </template>
 
 <script>
-export default {}
+import TemperatureRow from '~/components/TemperatureRow.vue'
+
+export default {
+  components: {
+    TemperatureRow
+  },
+  props: {
+    temperatures: {
+      type: Array,
+      required: true
+    }
+  }
+}
 </script>
 
 <style></style>

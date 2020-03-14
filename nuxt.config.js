@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+require('dotenv').config()
 export default {
     mode: 'universal',
     server: {
@@ -42,7 +43,9 @@ export default {
         // Doc: https://github.com/nuxt-community/stylelint-module
         '@nuxtjs/stylelint-module',
         // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss',
+        '@nuxtjs/dotenv',
+        '@nuxtjs/date-fns'
     ],
     /*
      ** Nuxt.js modules
@@ -52,8 +55,13 @@ export default {
         '@nuxtjs/axios',
         '@nuxtjs/pwa',
         // Doc: https://github.com/nuxt-community/dotenv-module
-        '@nuxtjs/dotenv'
+        '@nuxtjs/dotenv',
+        '@nuxtjs/date-fns'
     ],
+    dateFns: {
+        locales: ['fr'],
+        defaultLocale: 'fr'
+    },
     purgeCSS: {
         extractors: () => [{
             extractor: class {
@@ -68,7 +76,10 @@ export default {
      ** Axios module configuration
      ** See https://axios.nuxtjs.org/options
      */
-    axios: {},
+    axios: {
+        baseURL: process.env.MODE === 'production' || process.env.NODE_ENV === 'production' ?
+            process.env.BACKEND_URL : 'http://localhost:1337'
+    },
     /*
      ** Build configuration
      */
