@@ -81,7 +81,7 @@
                 >
                   <a
                     href="#"
-                    class="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline"
+                    class="text-blue-600 hover:text-blue-900 focus:outline-none focus:underline"
                     >Filtrer par ce code</a
                   >
                 </td>
@@ -111,7 +111,7 @@
                 >
                   <a
                     href="#"
-                    class="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline"
+                    class="text-blue-600 hover:text-blue-900 focus:outline-none focus:underline"
                     >Filtrer par ce code</a
                   >
                 </td>
@@ -141,7 +141,7 @@
                 >
                   <a
                     href="#"
-                    class="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline"
+                    class="text-blue-600 hover:text-blue-900 focus:outline-none focus:underline"
                     >Filtrer par ce code</a
                   >
                 </td>
@@ -169,7 +169,7 @@
                 >
                   <a
                     href="#"
-                    class="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline"
+                    class="text-blue-600 hover:text-blue-900 focus:outline-none focus:underline"
                     >Filtrer par ce code</a
                   >
                 </td>
