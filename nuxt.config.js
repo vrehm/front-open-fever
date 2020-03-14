@@ -3,8 +3,10 @@ require('dotenv').config()
 export default {
     mode: 'universal',
     server: {
-        port: 5000, // default: 3000     
-        host: '0.0.0.0', // default: localhost   
+        port: process.env.MODE === 'production' || process.env.NODE_ENV === 'production' ?
+            process.env.PORT : 5000,
+        host: process.env.MODE === 'production' || process.env.NODE_ENV === 'production' ?
+            process.env.HOST : '0.0.0.0'
     },
     /*
      ** Headers of the page
