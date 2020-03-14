@@ -22,10 +22,10 @@
     <td
       class="hidden md:table-cell px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium"
     >
-      <a
-        href="#"
+      <nuxt-link
+        :to="filteringLink"
         class="text-blue-600 hover:text-blue-900 focus:outline-none focus:underline"
-        >Filtrer par ce code</a
+        >Filtrer par ce code</nuxt-link
       >
     </td>
   </tr>
@@ -37,6 +37,11 @@ export default {
     temperature: {
       type: Object,
       required: true
+    }
+  },
+  data() {
+    return {
+      filteringLink: '/temperatures/code-postal/' + this.temperature.zipcode
     }
   }
 }

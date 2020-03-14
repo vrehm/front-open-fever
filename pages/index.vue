@@ -4,7 +4,7 @@
 
     <div
       id="temperature-form"
-      class="w-full sm:w-1/2 flex flex-col flex-wrap justify-center px-1"
+      class="w-full sm:w-1/2 flex flex-col flex-wrap justify-center px-1 sm:pt-4"
     >
       <div class="sm:max-w-xs mt-6">
         <label
@@ -48,8 +48,16 @@
         <temperature-share-button @click.native="submitTemperature" />
       </div>
     </div>
-    <div class="w-full sm:w-1/2 flex flex-col flex-wrap justify-center px-1">
-      <temperature-table :temperatures="temperatures" />
+    <div
+      class="w-full sm:w-1/2 flex flex-col flex-wrap justify-center px-1 sm:pt-4"
+    >
+      <temperature-table
+        :temperatures="temperatures"
+        description="Les 10 dernières températures relevées."
+        title="Températures relevées"
+        cta-link="/temperatures/"
+        cta-text="Voir toutes les mesures"
+      />
     </div>
   </div>
 </template>
@@ -102,7 +110,7 @@ export default {
       this.temperature = null
       this.zipcode = null
       this.showNotice = true
-      this.startInterval(4000)
+      this.startInterval(100000)
     },
     async refreshData() {
       const {

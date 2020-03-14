@@ -6,20 +6,20 @@
       >
         <div class="ml-4 mt-4">
           <h3 class="text-lg leading-6 font-medium text-gray-900">
-            Températures relevées
+            {{ title }}
           </h3>
           <p class="mt-1 text-sm leading-5 text-gray-500">
-            Les 10 dernières températures transmises.
+            {{ description }}
           </p>
         </div>
         <div class="ml-4 mt-4 flex-shrink-0">
           <span class="inline-flex rounded-md shadow-sm">
-            <nuxt-link to="/temperatures">
+            <nuxt-link :to="ctaLink">
               <button
                 type="button"
                 class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-700 active:bg-blue-700"
               >
-                Voir toutes les températures
+                {{ ctaText }}
               </button>
             </nuxt-link>
           </span>
@@ -62,124 +62,6 @@
                 :key="temperature.id"
                 :temperature="temperature"
               />
-              <!-- <tr>
-                <td
-                  class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"
-                >
-                  <span
-                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-                  >
-                    69002
-                  </span>
-                </td>
-                <td
-                  class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"
-                >
-                  37.5 °C
-                </td>
-                <td
-                  class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"
-                >
-                  14/03/20
-                </td>
-                <td
-                  class="hidden md:table-cell px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium"
-                >
-                  <a
-                    href="#"
-                    class="text-blue-600 hover:text-blue-900 focus:outline-none focus:underline"
-                    >Filtrer par ce code</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td
-                  class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"
-                >
-                  <span
-                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-                  >
-                    69002
-                  </span>
-                </td>
-                <td
-                  class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"
-                >
-                  37.5 °C
-                </td>
-                <td
-                  class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"
-                >
-                  14/03/20
-                </td>
-                <td
-                  class="hidden md:table-cell px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium"
-                >
-                  <a
-                    href="#"
-                    class="text-blue-600 hover:text-blue-900 focus:outline-none focus:underline"
-                    >Filtrer par ce code</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td
-                  class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"
-                >
-                  <span
-                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-                  >
-                    75001
-                  </span>
-                </td>
-                <td
-                  class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"
-                >
-                  37.5 °C
-                </td>
-                <td
-                  class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"
-                >
-                  14/03/20
-                </td>
-                <td
-                  class="hidden md:table-cell px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium"
-                >
-                  <a
-                    href="#"
-                    class="text-blue-600 hover:text-blue-900 focus:outline-none focus:underline"
-                    >Filtrer par ce code</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 whitespace-no-wrap">
-                  <span
-                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-                  >
-                    75001
-                  </span>
-                </td>
-                <td
-                  class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"
-                >
-                  37.5 °C
-                </td>
-                <td
-                  class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"
-                >
-                  14/03/20
-                </td>
-                <td
-                  class="hidden md:table-cell px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium"
-                >
-                  <a
-                    href="#"
-                    class="text-blue-600 hover:text-blue-900 focus:outline-none focus:underline"
-                    >Filtrer par ce code</a
-                  >
-                </td>
-              </tr> -->
             </tbody>
           </table>
         </div>
@@ -198,6 +80,22 @@ export default {
   props: {
     temperatures: {
       type: Array,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    ctaLink: {
+      type: String,
+      required: true
+    },
+    ctaText: {
+      type: String,
       required: true
     }
   }
